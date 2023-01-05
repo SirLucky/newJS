@@ -13,3 +13,8 @@ for (let i = 0; i < word.length; i++) {
 }
 
 let remainingLetters = word.length;
+
+while (remainingLetters > 0) {
+    alert(answerArray.join(""));
+    let guess = prompt("Guess a lette");
+}
