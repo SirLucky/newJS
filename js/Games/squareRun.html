@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>squareRun</title>
+</head>
+
+<body>
+    <h1 id="heading">Hello world!</h1>
+    <script src="http://code.jquery.com/jquery-2.1.0.js"></script>
+    <script>
+        let counterFirst = 0;
+        let counterSecond = 0;
+        let counterThird = 400;
+        let counterFourth = 400;
+        let clicks = 0;
+
+        function runner() {
+            $("#heading").click(function(event){
+                clicks++;
+                $("body").append("<p>" + clicks + "</p>");
+            });
+
+            if (counterFirst < 400) {
+
+                $("#heading").offset({ left: counterFirst });
+                counterFirst++;
+
+            } else if (counterSecond < 400) {
+
+                $("#heading").offset({ top: counterSecond });
+                counterSecond++;
+
+            }
+            else if (counterThird > 0) {
+
+                $("#heading").offset({ left: counterThird });
+                counterThird--;
+            }
+            else if (counterFourth > 0) {
+
+                $("#heading").offset({ top: counterFourth });
+                counterFourth--;
+
+            } else if (counterFourth === 0) {
+                 counterFirst = 0;
+                counterSecond = 0;
+                 counterThird = 400;
+                 counterFourth = 400;
+            }
+        };
+        setInterval(runner, 3);
+    </script>
+
+</body>
+
+</html>

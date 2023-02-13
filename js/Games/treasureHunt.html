@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treasure hunt</title>
+</head>
+
+<body>
+    <h1 id="heading">Find the buried treasure!</h1>
+    <img id="map" width=400 height=400 src="map.jpeg">
+    <p id="distance"></p>
+    <script src="http://code.jquery.com/jquery-2.1.0.js"></script>
+    <script>
+
+        function getRandomNumber(size) {
+            return Math.floor(Math.random() * size);
+        };
+
+        function getDistance(event, target) {
+            let diffX = event.offsetX - target.x;
+            let diffY = event.offsetY - target.y;
+            return Math.sqrt((diffX * diffX) + (diffY * diffY));
+        };
+
+        function getDistanceHint(distance) {
+            if (distance < 10) {
+                return "Bolling hot!";
+            } else if (distance < 20) {
+                return "Really hot";
+
+            } else if (distance < 40) {
+                return "Hot";
+
+            } else if (distance < 80) {
+                return "Warm";
+
+            } else if (distance < 160) {
+                return "Cold";
+
+            } else if (distance < 320) {
+                return "Really cold";
+            } else {
+                return "Freezing";
+            }
+        };
+
+        let width = 400;
+        let height = 400;
+        let clicks = 0;
+
+        let target = {
+            x: getRandomNumber(width),
+            y: getRandomNumber(height)
+        };
+
+        $("#map").click(function (event) {
+            clicks++;
+            let distance = getDistance(event, target);
+
+            let distanceHint = getDistanceHint(distance);
+
+            $("#distance").text(distanceHint);
+
+            if (distance < 10) {
+                alert("Found the treasure in" + click + "clicks!");
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

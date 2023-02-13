@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive programming</title>
+</head>
+
+<body>
+    <h1 id="heading">Hello world!</h1>
+    <script src="http://code.jquery.com/jquery-2.1.0.js"></script>
+    <script>
+        // let leftOffset = 0;
+        // function moveHeading () {
+        //     $("#heading").offset({ left: leftOffset });
+        //     leftOffset++;
+        //     if (leftOffset > 200) {
+        //         leftOffset = 0;
+        //     }
+        // };
+        // setInterval(moveHeading, 15);
+
+        function clickHandler(event) {
+            $("#heading").offset({
+                left: event.pageX,
+                top: event.pageY
+            });
+        };
+        $("html").click(clickHandler);
+    </script>
+</body>
+
+</html>
