@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 6</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Дано: З клавіатури вводяться вартість товару та кількість одиниць 3 товарів.
+        Обчислити вартість кожного товару окремо та загальну вартість.
+        Вивести чек (як у супермаркеті) використовуючи елементи розмітки.
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        const priseFirstItem = parseFloat(prompt('Введіть вартість першого товару', 0))
+        const quantityFirstItem = parseInt(prompt('Введіть кількість першого товару', 0))
+        const priseSecondItem = parseFloat(prompt('Введіть вартість друого товару', 0))
+        const quantitySecondItem = parseInt(prompt('Введіть кількість друого товару', 0))
+        const priseThirdItem = parseFloat(prompt('Введіть вартість третього товару', 0))
+        const quantityThirdItem = parseInt(prompt('Введіть кількість третього товару', 0))
+
+        // Розрахунок
+
+        let totalFirstPrise = priseFirstItem * quantityFirstItem
+        let totalSecondPrise = priseSecondItem * quantitySecondItem
+        let totalThirdPrise = priseThirdItem * quantityThirdItem
+        let total = totalFirstPrise + totalSecondPrise + totalThirdPrise
+
+
+        // Вивід результату
+
+    </script>
+    <table>
+        <tr>
+            <th>Вартість товару</th>
+            <th>Кількість товару</th>
+            <th>Всього</th>
+        </tr>
+        <tr>
+            <td>Назва
+                <script>document.write(`${priseFirstItem}`)</script>
+            </td>
+            <td>Кількість
+                <script>document.write(`${quantityFirstItem}`)</script>
+            </td>
+            <td>Всього
+                <script>document.write(`${totalFirstPrise}`)</script>
+            </td>
+        </tr>
+        <tr>
+            <td>Назва
+                <script>document.write(`${priseSecondItem}`)</script>
+            </td>
+            <td>Кількість
+                <script>document.write(`${quantitySecondItem}`)</script>
+            </td>
+            <td>Всього
+                <script>document.write(`${totalSecondPrise}`)</script>
+            </td>
+        </tr>
+        <tr>
+            <td>Назва
+                <script>document.write(`${priseThirdItem}`)</script>
+            </td>
+            <td>Кількість
+                <script>document.write(`${quantityThirdItem}`)</script>
+            </td>
+            <td>Всього
+                <script>document.write(`${totalThirdPrise}`)</script>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <th>Загальна вартість:</th>
+            <th>
+                <script>document.write(`${total}`)</script>
+            </th>
+        </tr>
+    </table>
+</body>
+
+</html>

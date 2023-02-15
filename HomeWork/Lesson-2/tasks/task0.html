@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 0</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Дано: обчислити значення виразів
+        1) S1=a+12+b
+        2) S2=a+b2a
+        3) S3=3(a+b)c
+        4) S4=sin⁡(a-b)
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        const a = parseInt(prompt('Введіть значення a', 0))
+        const b = parseInt(prompt('Введіть значення b', 0))
+        const c = parseInt(prompt('Введіть значення c', 0))
+
+        // Розрахунок
+
+        let S1 = a + 12 + b
+        let S2 = a + b * 2 * a
+        let S3 = 3 * (a + b) * c
+        let S4 = Math.sin(a - b)
+
+        // Вивід результату
+
+        document.write(`
+                        S1 = ${S1} <br/>
+                        S2 = ${S2} <br/>
+                        S3 = ${S3} <br/>
+                        S4 = ${S4} <br/>
+                        `)
+
+
+    </script>
+
+</body>
+
+</html>
