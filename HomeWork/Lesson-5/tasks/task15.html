@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 15</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+
+        Дано: Користувач поступово вводить показники температури протягом року.
+        Знайти середню температуру.
+
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        let temperatureSum = 0
+        let result = 0
+
+        // Розрахунок та вивід результату
+
+        for (let i = 0; i < 12; i++) {
+            let personTemperature = parseFloat(prompt(`Введіть температуру поточного(${i + 1}) місяця.`))
+            temperatureSum += personTemperature
+        }
+        
+        result = temperatureSum / 12
+        alert(`Середня температура ${result}`)
+
+    </script>
+</body>
+
+</html>

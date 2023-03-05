@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 4</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+
+        Дано: Вивести таблицю з 3 рядків і 7 стовпців
+
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        const howManyRows = 3
+        const howManyColumns = 7
+
+        // Розрахунок та вивід результату
+
+        document.write(`<table border="2=x">
+                           <tbody>`)
+        for (let rows = 1; rows <= howManyRows; rows++) {
+
+            document.write(`<tr>`)
+
+            for (let columns = 1; columns <= howManyColumns; columns++) {
+
+                document.write(`<td> ${columns}</td>`)
+
+            }
+            document.write(`</tr>`)
+        }
+        document.write(`   </tbody>
+                        </table >`)
+
+    </script>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 7</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Дано: Вивести на екран N абзаців (N вводиться користувачем) за зразком:
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        const numberParagraphs = parseInt(prompt(`Enter the number of paragraphs:`, 0))
+
+        // Розрахунок та вивід результату
+
+        document.write(`<h1>Заголовок ${numberParagraphs}</h1>`)
+
+        for (let i = 1; i <= numberParagraphs; i++) {
+
+            document.write(`<p>Розділ ${numberParagraphs}, параграф ${i}</p>`)
+
+        }
+        
+    </script>
+</body>
+
+</html>

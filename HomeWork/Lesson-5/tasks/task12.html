@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 4</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+
+        Дано: Ігровий автомат. Випадково вибираємо зображення у 3 позиціях.
+        Вибір у кожній позиції вибирається як одне з чотирьох зображень.
+        Вивести ці зображення і повідомити виграш користувача
+        (три перших зображення 100 грн, три других – 200, три
+        третіх – 500, три четвертих зображення – 1000грн). Використати
+        цикли і switch (для вибору зображення за номером).
+
+    </p>
+    <script>
+        // Генерирую слот 3 раза
+        // Генерирую картинки выбирая 1 из 4 изображений в каждій слот
+        // Сравниваю на совпадение
+        // Вывожу изображения и уведомляю игрока о выиграше  
+
+        // Об'ява змінних, та отримання данних
+
+        let firstSlot
+        let secondSlot
+        let thirdSlot
+
+        // Розрахунок та вивід результату
+
+
+        for (let i = 0; i < 3; i++) {
+            firstSlot = 1 + Math.floor(Math.random() * 4)
+            secondSlot = 1 + Math.floor(Math.random() * 4)
+            thirdSlot = 1 + Math.floor(Math.random() * 4)
+            if (firstSlot === secondSlot && firstSlot === thirdSlot) {
+                for (let j = 0; j < 3; j++) {
+                    switch (firstSlot) {
+                        case 1: document.write(`<img src="./img/1.jpg">`)
+                            break;
+                        case 2: document.write(`<img src="./img/2.jpg">`)
+                            break;
+                        case 3: document.write(`<img src="./img/3.jpg">`)
+                            break;
+                        case 4: document.write(`<img src="./img/4.jpg">`)
+                    }
+                }
+                break
+            } else i--
+        }
+
+        switch (firstSlot) {
+            case 1: document.write(`<br> <h1>Ви виграли 100 грн!</h1>`)
+                break;
+            case 2: document.write(`<br> <h1>Ви виграли 200 грн!</h1>`)
+                break;
+            case 3: document.write(`<br> <h1>Ви виграли 500 грн!</h1>`)
+                break;
+            case 4: document.write(`<br> <h1>Ви виграли 1000 грн!</h1>`)
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

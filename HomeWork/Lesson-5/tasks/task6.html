@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 6</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Дано: Вивести 3 таблиці (по 3 рядки і 3 стовпці у кожній) за зразком
+
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        const howManyTables = 3
+        const howManyRows = 3
+        const howManyColumns = 3
+
+        // Розрахунок та вивід результату
+
+        for (let tables = 1; tables <= howManyTables; tables++) {
+
+            document.write(`<table border="2=x">
+                              <tbody>`)
+            for (let rows = 1; rows <= howManyRows; rows++) {
+
+                document.write(`<tr>`)
+
+                let tableFillingNumbers = (rows * howManyColumns - (howManyColumns - 1))
+
+                for (let columns = 1; columns <= howManyColumns; columns++) {
+
+                    if (tables === 2) {
+
+                        document.write(`<td> ${tableFillingNumbers + 9}</td>`)
+                        tableFillingNumbers++
+                    }
+                    else if (tables === 3) {
+
+                        document.write(`<td> ${tableFillingNumbers + 18}</td>`)
+                        tableFillingNumbers++
+                    }
+                    else {
+
+                        document.write(`<td> ${tableFillingNumbers}</td>`)
+                        tableFillingNumbers++
+                    }
+                }
+
+                document.write(`</tr>`)
+            }
+            document.write(` </tbody>
+                          </table >`)
+        }
+
+    </script>
+
+</body>
+
+</html>
