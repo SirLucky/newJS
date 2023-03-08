@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 8</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+
+        Дано: Створити функцію, яка виводить банер (у функцію передаються:
+        зображення, заголовок та посилання, куди переходимо при
+        кліку на зображення (тег img повине знаходитись у середині тега a:
+        <a> <img src=”шлях”> </a>
+
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        const picture = "./img/city.jpg"
+        const header = "Some text text text"
+        const way = "https://www.google.com/"
+
+
+        // Розрахунок та вивід результату
+
+        function getBanner() {
+            return `<p><a href= "${way}" ><img src= "${picture}" 
+                               alt="Dnipro"></a>"${header}"</p>`
+
+        }
+        document.write(getBanner())
+    </script>
+
+</body>
+
+</html>

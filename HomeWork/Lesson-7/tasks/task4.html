@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 4</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+
+        Дано: Створити функцію, яка для 3 заданих чисел знаходить одночасно
+        декілька результатів: кількість парних, кількість додатних,
+        кількість більших за 100
+
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        let numberEven = 0
+        let numberPositive = 0
+        let numberGreater = 0
+
+        // Розрахунок та вивід результату
+
+        function evenPositiveGreater(a, b, c) {
+            if (a % 2 === 0) ++numberEven
+            if (b % 2 === 0) ++numberEven
+            if (c % 2 === 0) ++numberEven
+
+            if (a > 0) ++numberPositive
+            if (b > 0) ++numberPositive
+            if (c > 0) ++numberPositive
+
+            if (a > 100) ++numberGreater
+            if (b > 100) ++numberGreater
+            if (c > 100) ++numberGreater
+            return [numberEven, numberPositive, numberGreater]
+
+        }
+
+    </script>
+
+</html>

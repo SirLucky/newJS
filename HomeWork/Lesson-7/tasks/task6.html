@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 6</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Дано: Створити функцію, яка створює таблицю з вказаною кількістю рядків
+        і стовпців (таблиця заповнюється заданим фіксованим повідомленням).
+
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        const someArbitraryText = "Text text text"
+
+        // Розрахунок та вивід результату
+
+        function tableCreation(howManyRows, howManyColumns) {
+
+            document.write(`<table border="2=x">
+                              <tbody>`)
+            for (let rows = 1; rows <= howManyRows; rows++) {
+
+                document.write(`<tr>`)
+
+                let tableFillingNumbers = (rows * howManyColumns - (howManyColumns - 1))
+
+                for (let columns = 1; columns <= howManyColumns; columns++) {
+
+                    document.write(`<td> ${someArbitraryText}</td>`)
+                    tableFillingNumbers++
+                }
+
+                document.write(`</tr>`)
+            }
+            document.write(` </tbody>
+                          </table >`)
+        }
+        console.log(tableCreation(4, 4));
+    </script>
+
+</body>
+
+</html>
