@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 3</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Дано: масив імен учнів. З’ясувати скільки разів зустрічається ім’я «Іван».
+
+    </p>
+    <script>
+        // Об'ява змінних, та отримання данних
+
+        let arrNames = ['Микола', 'Іван', 'Юрко', 'Іван', 'Петро', 'Микита', 'Іван', 'Денис']
+
+        // Розрахунок та вивід результату
+
+
+        function getQuantityIvans(arrNames) {
+            let Ivans = 0
+            const quantityElements = arrNames.length
+            for (let i = 0; i <= quantityElements; i++) {
+                let element = arrNames[i]
+                if ('Іван' === element) Ivans++
+            }
+            return Ivans
+        }
+
+        const numIvans = getQuantityIvans(arrNames)
+        document.write(`<br> ${numIvans}`)
+
+
+
+    </script>
+
+</body>
+
+</html>

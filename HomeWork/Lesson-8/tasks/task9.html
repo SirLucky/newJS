@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 9</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+
+        Дано: Морський бій. Користувач вводить кількість клітинок одновимірного масиву
+        та кількість одиночних кораблів. Комп’ютер довільно розміщує ці одиночні кораблі
+        у масиві по один у клітинці (якщо у клітинці 0, то клітинка пуста, якщо 1 – то це
+        означає, що там є корабель). Користувач вводить номер клітинки, куди стріляє.
+        Гра продовжується до тих пір, поки не будуть потоплені усі кораблі.
+
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        const quantityPlacesOnField = parseInt(prompt('Введіть кількість клітинок: '))
+        const quantityShipsOnField = parseInt(prompt('Введіть кількість кораблів: '))
+        // Розрахунок 
+        function getRandomNum(minNumRange, maxNumRange) {
+            const randomShip = Math.floor(Math.random() * (maxNumRange - minNumRange + 1)) + minNumRange
+            return randomShip
+        }
+
+        function getShipOnField(quantityPlacesOnField, quantityShipsOnField) {
+            const shipOnField = new Array(quantityPlacesOnField).fill(0)
+            for (let i = 0; i < quantityShipsOnField; i++) {
+                let indexShip = 0
+                do {
+                    indexShip = getRandomNum(0, quantityPlacesOnField - 1)
+                } while (shipOnField[indexShip] === 1)
+                shipOnField[indexShip] = 1
+            }
+            return shipOnField
+        }
+
+        function gameProcess(shipOnField, quantityShipsOnField) {
+            do {
+                const userShot = parseInt(prompt(`Введіть клітинку пострілу від 1 до ${shipOnField.length} `)) - 1
+
+                if (shipOnField[userShot] === 1) {
+                    quantityShipsOnField--
+                    alert('Потопив')
+                    shipOnField[userShot] = 0
+                } else alert('Спробуй ще!')
+            } while (quantityShipsOnField > 0)
+            alert('Ви потопили всі кораблі!')
+        }
+        const shipOnField = getShipOnField(quantityPlacesOnField, quantityShipsOnField)
+        gameProcess(shipOnField, quantityShipsOnField)
+
+
+    </script>
+</body>
+
+</html>

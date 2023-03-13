@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 7</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Дано: послідовність платіжок протягом року. Знайти сумарну кількість грошей за:
+        за весь рік;
+        у першій половині року;
+        у другій половині року;
+        за літо;
+        за ІІ квартал;
+        за парні місяці (з парними номерами);
+        за місяці, які є початковими у сезоні (весна, літо, осінь, зима).
+
+    </p>
+
+    <script>
+        // Об'ява змінних, та отримання данних
+        let arrPaymentOrder = [120, 80, 200, 300, 350, 250, 120, 80, 200, 300, 350, 250]
+        let minMonth = 0
+        let maxMonth = 0
+
+        // Розрахунок та вивід результату
+
+        function getSumPaymentOrder(minMonth, maxMonth, arrPaymentOrder) {
+            const quantityElements = arrPaymentOrder.length
+            let sumPayment = 0
+            for (let i = 0; i < quantityElements; i++) {
+                const element = arrPaymentOrder[i]
+                if (i >= minMonth - 1 && i < maxMonth) sumPayment += element
+            }
+            return sumPayment
+        }
+        let sumPayment = getSumPaymentOrder(1, 12, arrPaymentOrder)
+        document.write(`<p>[120, 80, 200, 300, 350, 250, 120, 80, 200, 300, 350, 250]</p> <br>
+        Сумарна кількість грошей за весь рік: <b>${sumPayment}</b><br>`)
+
+        sumPayment = getSumPaymentOrder(1, 6, arrPaymentOrder)
+        document.write(`Сумарна кількість грошей у першій половині року: <b>${sumPayment}</b><br>`)
+
+        sumPayment = getSumPaymentOrder(7, 12, arrPaymentOrder)
+        document.write(`Сумарна кількість грошей у другій половині року: <b>${sumPayment}</b><br>`)
+
+        sumPayment = getSumPaymentOrder(6, 8, arrPaymentOrder)
+        document.write(`Сумарна кількість грошей за літо: <b>${sumPayment}</b><br>`)
+
+        sumPayment = getSumPaymentOrder(4, 6, arrPaymentOrder)
+        document.write(`Сумарна кількість грошей за ІІ квартал: <b>${sumPayment}</b><br>`)
+
+        function getSumEvenMonthPaymentOrder(minMonth, maxMonth, arrPaymentOrder) {
+            const quantityElements = arrPaymentOrder.length
+            let sumPayment = 0
+            for (let i = 0; i < quantityElements; i++) {
+                const element = arrPaymentOrder[i]
+                if (i >= minMonth - 1 && i < maxMonth && (i + 1) % 2 === 0) sumPayment += element
+            }
+            return sumPayment
+        }
+        sumPayment = getSumEvenMonthPaymentOrder(1, 12, arrPaymentOrder)
+        document.write(`Сумарна кількість грошей за парні місяці: <b>${sumPayment}</b><br>`)
+
+        function getSumStartSeasonMonthPaymentOrder(minMonth, maxMonth, arrPaymentOrder) {
+            const quantityElements = arrPaymentOrder.length
+            let sumPayment = 0
+            for (let i = 0; i < quantityElements; i++) {
+                const element = arrPaymentOrder[i]
+                if (i >= minMonth - 1 && i < maxMonth && (i + 1) % 3 === 0) sumPayment += element
+            }
+            return sumPayment
+        }
+        sumPayment = getSumStartSeasonMonthPaymentOrder(1, 12, arrPaymentOrder)
+        document.write(`Сумарна кількість грошей за місяці, які є початковими у сезоні (весна, літо, осінь, зима):
+                 <b>${sumPayment}</b><br>`)
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 4</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+
+        Дано: Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які :
+        • починаються на букву «А»;
+        • перша і остання літери співпадають;
+        • складаються з більше ніш 5 символів;
+
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+        let arrAutoNumbers = ['AX123CF', 'BC435', 'CL324HC', 'AP445HF', 'AL321CA']
+
+        // Розрахунок та вивід результату
+        //• починаються на букву «А»;
+
+        function getNumFirstA(arrAutoNumbers) {
+
+            const quantityElements = arrAutoNumbers.length
+            let numFirstA = 0
+
+            for (let i = 0; i < quantityElements; i++) {
+                const element = arrAutoNumbers[i]
+                if (element[0] === 'A') numFirstA++
+
+            }
+            return numFirstA
+        }
+        const numFirstA = getNumFirstA(arrAutoNumbers)
+        document.write(`<h4>Кількість авто з першою А: ${numFirstA}</h4><br>`)
+
+        // перша і остання літери співпадають;
+
+        function getEqualFirstLastLetters(arrAutoNumbers) {
+            const quantityElements = arrAutoNumbers.length
+            let equalFirstLastLetters = 0
+
+            for (let i = 0; i < quantityElements; i++) {
+
+                const element = arrAutoNumbers[i]
+                if (element[0] === element[element.length - 1]) equalFirstLastLetters++
+            }
+            return equalFirstLastLetters
+        }
+        const equalFirstLastLetters = getEqualFirstLastLetters(arrAutoNumbers)
+        document.write(`<h4>Кількість авто з однаковими першою та останнею літерами: ${equalFirstLastLetters}</h4><br>`)
+
+        //• складаються з більше ніш 5 символів;
+        
+        function getNumMoreThenFiveElements(arrAutoNumbers) {
+            const quantityElements = arrAutoNumbers.length
+            let numMoreThenFiveElements = 0
+
+            for (let i = 0; i < quantityElements; i++) {
+
+                const element = arrAutoNumbers[i]
+                if (element.length > 5) numMoreThenFiveElements++
+            }
+            return numMoreThenFiveElements
+        }
+
+        const numMoreThenFiveElements = getNumMoreThenFiveElements(arrAutoNumbers)
+        document.write(`<h4>Кількість авто з номерами більше ніш 5 символів: ${numMoreThenFiveElements}</h4>`)
+
+
+    </script>
+
+</html>

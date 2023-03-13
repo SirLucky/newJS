@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 5</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Дано: послідовність оцінок учня. Підрахувати кількість:
+        1) двійок
+        2) кількість хороших оцінок (добре, відмінно);
+        3) кількість оцінок, які нижче середнього.
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        let arrStudentGrades = [3, 4, 5, 4, 5, 2, 4, 2, 1, 4, 5, 2]
+
+        // Розрахунок та вивід результату
+
+        function getTwos(arrStudentGrades) {
+            const quantityElements = arrStudentGrades.length
+            let twos = 0
+            for (let i = 0; i < quantityElements; i++) {
+                const element = arrStudentGrades[i];
+                if (element == 2) twos++
+            }
+            return twos
+        }
+        const twos = getTwos(arrStudentGrades)
+        document.write(`Кількість двійок: <b>${twos}</b><br>`)
+
+        function getQuantityGoodGrades(arrStudentGrades) {
+            const quantityElements = arrStudentGrades.length
+            let goodGrades = 0
+            for (let i = 0; i < quantityElements; i++) {
+                const element = arrStudentGrades[i];
+                if (element > 3) goodGrades++
+            }
+            return goodGrades
+        }
+        const goodGrades = getQuantityGoodGrades(arrStudentGrades)
+        document.write(`Кількість хороших оцінок (добре, відмінно): <b>${goodGrades}</b><br>`)
+
+        function getAverageGrade(arrStudentGrades) {
+            const quantityElements = arrStudentGrades.length
+            let averageGrade = 0
+            for (let i = 0; i < quantityElements; i++) {
+                const element = arrStudentGrades[i];
+                averageGrade += element
+
+            }
+            return averageGrade / quantityElements
+        }
+
+        const averageGrade = getAverageGrade(arrStudentGrades)
+
+        function getBelowAverage(arrStudentGrades, averageGrade) {
+            const quantityElements = arrStudentGrades.length
+            let belowAverage = 0
+            for (let i = 0; i < quantityElements; i++) {
+                const element = arrStudentGrades[i];
+                if (element < averageGrade) belowAverage++
+            }
+            return belowAverage
+        }
+        const belowAverage = getBelowAverage(arrStudentGrades, averageGrade)
+        document.write(`Кількість оцінок, які нижче середнього: <b>${belowAverage}</b><br>`)
+
+    </script>
+</body>
+
+</html>

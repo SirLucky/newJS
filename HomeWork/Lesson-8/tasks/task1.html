@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 1</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Дано: Дано масив, який містить оцінки з К предметів. Знайти середній бал
+        і з’ясувати до якої категорії він відноситься (відмінник, двійочник
+        (має хоча би одну двійку), хорошист (оцінки добре і відмінно), трійочник
+        (є хоча би одна трійка)).
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        let arrGrades = [4, 4, 4, 3, 5, 4, 5, 4]
+
+        // Розрахунок та вивід результату
+
+        function averageGrades(arrGrades) {
+            let sumGrades = 0
+            const quantityElements = arrGrades.length
+            for (let i = 0; i < quantityElements; i++) {
+                const element = arrGrades[i];
+                sumGrades += element
+            }
+            return sumGrades / quantityElements
+        }
+        document.write(averageGrades(arrGrades))
+
+        function getStudentStatus(arrGrades) {
+            let Status
+            const minGrade = Math.min(...arrGrades)
+
+            switch (minGrade) {
+                case 1:
+                case 2: Status = 'Двійочник'
+                    break;
+
+                case 3: Status = 'Трійочник'
+                    break;
+
+                case 4: Status = 'Хорошист'
+                    break;
+
+                case 5: Status = 'Відмінник'
+                    break;
+
+                default: Status = 'Оцінок немає'
+            }
+            return Status
+        }
+        const status = getStudentStatus(arrGrades)
+        document.write(`<br> ${status}`)
+
+    </script>
+
+</body>
+
+</html>

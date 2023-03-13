@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 8</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+
+        Дано: одновимірний масив, у якому зберігається певна виграшна сума
+        (елементи заповнюються випадковим чином значеннями від -500
+        до 500). Надаючи користувачу можливість вибирати номери елементів
+        (поки він не відмовиться). Знаходити сумарний виграш.
+
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        let arrWinSum = []
+
+        // Розрахунок та вивід результату
+
+
+        function getRandomNumWin(minNumRange, maxNumRange) {
+            const randomNumWin = Math.floor(Math.random() * (maxNumRange - minNumRange)) + minNumRange
+            return randomNumWin
+        }
+
+        function getRandomGameArr(arrWinSum) {
+
+            for (let i = 0; i < 25; i++) {
+                let randomNumWin = getRandomNumWin(-500, 500)
+                if (i < 25)
+
+                    arrWinSum.push(randomNumWin)
+            }
+            return arrWinSum
+        }
+
+        let randomGameArr = getRandomGameArr(arrWinSum)
+
+
+        function gameProcess(randomGameArr) {
+            let currentWinningAmount = 0
+            let userAnswer
+            do {
+                let lastUserNum = parseInt(prompt('Введіть номер елементу від 0 до 25'))
+                currentWinningAmount += arrWinSum[lastUserNum]
+                userAnswer = confirm(`Ваш виграш становить ${currentWinningAmount} Бажаєте продовжити?`)
+            }
+            while (userAnswer === true)
+            return currentWinningAmount
+        }
+        let currentWinningAmount = gameProcess(randomGameArr)
+        document.write(`Ваш виграш становить ${currentWinningAmount}!`)
+
+
+
+
+    </script>
+
+</body>
+
+</html>
