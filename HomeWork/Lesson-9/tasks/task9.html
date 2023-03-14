@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 9</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+
+        Дано: масив імен. Сформувати масив з перших літер цих імен.
+
+    </p>
+    <p>
+
+        Масив що дано ['Anna', 'Nicol', 'Joan', 'Stive', 'Linda', 'Karol']
+    </p>
+
+    <script>
+        // Об'ява змінних, та отримання данних
+
+        let arrNames = ['Anna', 'Nicol', 'Joan', 'Stive', 'Linda', 'Karol']
+
+        // Розрахунок та вивід результату
+
+        function getNamesFirstLetter(arrNames) {
+            let namesFirstLetter = []
+            arrNames.forEach(element => {
+                let temp = element[0]
+                namesFirstLetter.push(temp)
+            })
+            return namesFirstLetter
+        }
+        document.write(getNamesFirstLetter(arrNames))
+
+    </script>
+</body>
+
+</html>

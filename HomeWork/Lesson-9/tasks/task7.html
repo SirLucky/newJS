@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 7</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Дано: масив цін. Змінити цей масив так, що на ціни товарів,
+        які більші за 1000 грн. дати 30% знижки.
+    </p>
+    <p>
+        Масив що дано [500, 6000, 33, 750, 9000, 222, 456, 9000]
+    </p>
+
+    <script>
+
+        // Об'ява змінних, та отримання данних
+        let dataArrey = [500, 6000, 33, 750, 9000, 222, 456, 9000]
+
+        // Розрахунок та вивід результату
+
+        function getDoubleElementsMoreThenFirst(dataArrey) {
+            let resultArr = []
+
+            dataArrey.forEach(element => {
+
+                if (element > 1000) {
+                    let discount = element * 0.3
+                    let temp = element - discount
+                    resultArr.push(temp)
+                } else resultArr.push(element)
+            });
+            return resultArr
+        }
+        document.write(getDoubleElementsMoreThenFirst(dataArrey))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 6</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Дано: Дано масив елементів. Усі елементи, які більші за перший елемент помножити на 2
+
+    </p>
+    <p>
+        Масив що дано [5, 6, 3, 7, 9, 2, 4, 9]
+    </p>
+
+    <script>
+
+        // Об'ява змінних, та отримання данних
+        let dataArrey = [5, 6, 3, 7, 9, 2, 4, 9]
+
+        // Розрахунок та вивід результату
+
+        function getDoubleElementsMoreThenFirst(dataArrey) {
+            let resultArr = []
+
+            dataArrey.forEach(element => {
+
+                if (element > dataArrey[0]) {
+                    let temp = element * 2
+                    resultArr.push(temp)
+                } else resultArr.push(element)
+            });
+            return resultArr
+        }
+        document.write(getDoubleElementsMoreThenFirst(dataArrey))
+
+    </script>
+
+</body>
+
+</html>

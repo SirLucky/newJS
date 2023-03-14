@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 5</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Дано: Дано масив елементів. Знайти добуток додатних елементів
+    </p>
+    <p>
+        Масив що дано [-4, 2, 6, -7, - 245, -45, -74, - 4, 5, -65, -7]
+    </p>
+
+    <script>
+        // Об'ява змінних, та отримання данних
+
+        let dataArrey = [-4, 2, 6, -7, - 245, -45, -74, - 4, 5, -65, -7]
+
+        // Розрахунок та вивід результату
+
+        function getProductOfNumbers(dataArrey) {
+            let productOfNumbers = 1
+
+            dataArrey.forEach(element => {
+                if (element > 0) productOfNumbers *= element
+            });
+            return productOfNumbers
+        }
+        document.write(getProductOfNumbers(dataArrey))
+
+    </script>
+</body>
+
+</html>

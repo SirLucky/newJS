@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 8</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+
+        Дано: масив номерів авто. Сформувати новий масив тих, які починаються на «А»
+
+    </p>
+    <p>
+        Масив що дано [AKD758HFJ, KDJ823LTH, AKS738HFB, BCN746LSJ, LDK9378MDJ, AGS367DJK]
+    </p>
+    <script>
+        // Об'ява змінних, та отримання данних
+
+        let arrCarsNumbers = ['AKD758HFJ', 'KDJ823LTH', 'AKS738HFB', 'BCN746LSJ', 'LDK9378MDJ', 'AGS367DJK']
+
+        // Розрахунок та вивід результату
+
+        function getCarsNunStartA(arrCarsNumbers) {
+            let carsNunStartA = []
+            arrCarsNumbers.forEach(element => {
+                let temp = element[0]
+                if (temp === 'A') carsNunStartA.push(element)
+            })
+            return carsNunStartA
+        }
+        document.write(getCarsNunStartA(arrCarsNumbers))
+
+
+
+
+    </script>
+
+</body>
+
+</html>

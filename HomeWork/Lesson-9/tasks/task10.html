@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 10</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+
+        Дано: Дано масив цін у грн. Податок складає 20%. Сформувати масив,
+        який буде містити величину сплаченого податку у грн.
+
+    </p>
+    <p>
+        Масив що дано [600, 300, 100, 380, 340, 100, 100]
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        let arrPrices = [600, 300, 100, 380, 340, 100, 100]
+
+        // Розрахунок та вивід результату  
+
+        function getTax(arrPrices) {
+            let arrTax = []
+
+            arrPrices.forEach(element => {
+                let temp = element * 0.2
+                arrTax.push(temp)
+            });
+            return arrTax
+        }
+        document.write(getTax(arrPrices))
+
+    </script>
+</body>
+
+</html>

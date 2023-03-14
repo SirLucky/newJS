@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 4</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+
+        Дано: Дано масив елементів. Вивести на екран елементи, що більші за 100
+
+    </p>
+    <p>
+        Масив що дано [344, 23, 456, 7, 2345, 45, 674, 234, 5, 65, 7]
+    </p>
+
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        let dataArrey = [344, 23, 456, 7, 2345, 45, 674, 234, 5, 65, 7]
+
+        // Розрахунок та вивід результату
+
+        function getElementsMore_100(dataArrey) {
+            let arrAnswers = []
+            dataArrey.forEach(element => {
+                if (element > 100) arrAnswers.push(element)
+            });
+            return arrAnswers
+        }
+
+        document.write(getElementsMore_100(dataArrey))
+
+    </script>
+
+</html>
