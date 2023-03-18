@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 1</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+        
+        const arrData = [277, 4564, 456, 34, 5678, 2345, 32, 6789, 45, 234367, 46, 674, 2345]
+
+        // Розрахунок та вивід результату
+
+        const newArrNumMore1000 = arrData.filter(num => num > 1000)
+
+        document.write(newArrNumMore1000);
+
+    </script>
+
+</body>
+
+</html>

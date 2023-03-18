@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 3</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Дано: Сформувати список з тих цін, які більші за попереднє значення.
+    </p>
+    <p>
+        Массив що дано: [277, 4564, 456, 34, 5678, 2345, 32, 6789, 45, 234367, 46, 674, 2345]
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        const arrPrice = [277, 4564, 456, 34, 5678, 2345, 32, 6789, 45, 234367, 46, 674, 2345]
+
+        // Розрахунок та вивід результату
+        let newArrPrice = []
+
+        for (let i = 1; i < arrPrice.length; i++) {
+
+            if (arrPrice[i] > arrPrice[i - 1]) newArrPrice.push(arrPrice[i])
+        }
+
+        document.write(newArrPrice)
+
+    </script>
+
+</body>
+
+</html>

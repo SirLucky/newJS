@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 11</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+
+        Дано: Знайти індекс першої ціни, що більше за 1000
+
+    </p>
+    <p>
+        Массив що дано: [277, 564, 456, 34, 678, 2345, 32, 789, 45, 367, 46, 674, 345]
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        const arrPrice = [277, 564, 456, 34, 678, 2345, 32, 789, 45, 367, 46, 674, 345]
+
+        // Розрахунок та вивід результату
+
+        function getFistMore1000(arrPrice) {
+            let result = 0
+            for (let i = 0; i < arrPrice.length; i++) {
+                const element = arrPrice[i]
+                if (element > 1000) return result = i
+
+            }
+            return result
+        }
+        document.write(getFistMore1000(arrPrice))
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 2</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.
+    </p>
+    <p>
+        Массив що дано: [277, 4564, 456, 34, 5678, 2345, 32, 6789, 45, 234367, 46, 674, 2345]
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        const arrData = [277, 4564, 456, 34, 5678, 2345, 32, 6789, 45, 234367, 46, 674, 2345]
+
+
+        // Розрахунок та вивід результату
+        //На скільки я зрозувів, треба створити масив з індексами чисел, що більше 1000
+        //Бо інакше це ідентична задача попередній 
+
+        function getIndexElem(arrData) {
+            let newArrIndex = []
+            let arrLength = arrData.length
+            for (let i = 0; i < arrLength; i++) {
+                const element = arrData[i];
+                if (element > 1000) newArrIndex.push(i)
+            }
+            return newArrIndex
+        }
+
+        document.write(getIndexElem(arrData))
+
+    </script>
+</body>
+
+</html>

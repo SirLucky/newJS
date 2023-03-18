@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 4</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+
+        Дано: Знайти останню ціну, що більше за 1000
+
+    </p>
+    <p>
+        Массив що дано: [277, 564, 456, 34, 678, 2345, 32, 789, 45, 3667, 46, 674, 345]
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        const arrPrice = [277, 564, 456, 34, 678, 2345, 32, 789, 45, 3667, 46, 674, 345]
+
+        // Розрахунок та вивід результату
+
+        function getLastNumMore1000(arrPrice) {
+            const quantityElements = arrPrice.length
+            let result = 0
+            for (let i = quantityElements; quantityElements >= 0; i--) {
+                const element = arrPrice[i]
+                if (element > 1000) return result = element
+            }
+            return result
+        }
+        document.write(getLastNumMore1000(arrPrice))
+
+        // Варцант № 2 меньш оптимальний але з filter
+
+        let newArr = arrPrice.filter(el => el > 1000)
+
+        let result2 = newArr[newArr.length - 1]
+        document.write(`<br>${result2}`)
+
+    </script>
+</body>
+
+</html>

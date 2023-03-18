@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 7</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Визначати, чи усі ціни більше за 1000
+    </p>
+    <p>
+        Массив що дано: [2773, 5644, 4556, 6634, 6778, 23845, 32]
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        const arrPrice = [2773, 5644, 4556, 6634, 6778, 23845, 32]
+
+
+        // Розрахунок та вивід результату
+
+        function checkAllElementMore1000(arrPrice) {
+            let result = arrPrice.filter(element => {
+                if (element <= 1000) document.write('Ні, не всі')
+            })
+
+            return result
+        }
+        checkAllElementMore1000(arrPrice)
+
+
+
+
+
+    </script>
+</body>
+
+</html>

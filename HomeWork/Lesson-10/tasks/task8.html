@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 8</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+
+        Дано:Підрахувати кількість цін, що більше за 1000
+
+    </p>
+    <p>
+        Массив що дано: [277, 5464, 456, 34, 678, 2345, 32, 789, 45, 367, 4556, 674, 345]
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        const arrPrice = [277, 5464, 456, 34, 678, 2345, 32, 789, 45, 367, 4556, 674, 345]
+
+        // Розрахунок та вивід результату
+        let contMore1000Prices = 0
+
+        for (let i = 0; i < arrPrice.length; i++) {
+            const element = arrPrice[i];
+            if (element > 1000) contMore1000Prices++
+        }
+        document.write(contMore1000Prices)
+
+
+
+    </script>
+</body>
+
+</html>

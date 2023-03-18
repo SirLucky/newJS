@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 6</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Дано: Визначити, чи є ціна, що менше 1000
+
+    </p>
+    <p>
+        Массив що дано: [277, 564, 456, 34, 678, 2345, 32, 789, 45, 367, 46, 674, 345]
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        const arrPrice = [277, 564, 456, 34, 678, 2345, 32, 789, 45, 367, 46, 674, 345]
+
+        // Розрахунок та вивід результату
+
+        function getAnswer(arrPrice) {
+            let i = 0
+            const quantityElements = arrPrice.length
+            while (i < quantityElements) {
+                if (arrPrice[i] < 1000) {
+                    document.write('Так є!')
+                    return
+                }
+                else document.write('Ні нема!')
+                return
+                i++
+            }
+        }
+        getAnswer(arrPrice)
+
+
+    </script>
+
+</body>
+
+</html>

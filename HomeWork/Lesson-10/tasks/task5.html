@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 5</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+
+        Дано: Підрахувати кількість змін цін
+        <!-- Я так зрозумів, що требі знайти сумму 3 мін чисел массиву--> 
+
+    </p>
+    <p>
+        Массив що дано: [277, 564, 456, 34, 678, 2345, 32, 789, 45, 367, 46, 674, 345]
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        const arrPrice = [277, 564, 456, 34, 678, 2345, 32, 789, 45, 367, 46, 674, 345]
+
+        // Розрахунок та вивід результату
+
+        arrPrice.sort(function (a, b) {
+            return a - b
+        })
+        function getSum3MinEl(arrPrice) {
+            let sum = 0
+            for (let i = 0; i < 3; i++) {
+                const element = arrPrice[i]
+                sum += element
+            }
+            return sum
+        }
+        let sum = getSum3MinEl(arrPrice)
+        document.write(`<br>${sum}`)
+
+
+
+    </script>
+</body>
+
+</html>

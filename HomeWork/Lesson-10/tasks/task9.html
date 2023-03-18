@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 9</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+
+        Дано: Підрахувати суму цін, що більше за 1000
+
+    </p>
+    >
+    Массив що дано: [277, 564, 456, 34, 678, 2345, 32, 789, 45, 367, 4446, 674, 345]
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        const arrPrice = [277, 564, 456, 34, 678, 2345, 32, 789, 45, 367, 4446, 674, 345]
+
+        // Розрахунок та вивід результату
+
+        const sum = arrPrice.filter(elem => elem > 1000).reduce(function (currentSum, currentNumber, index) {
+            return currentSum + currentNumber
+        }, 0)
+        document.write(sum)
+
+
+
+
+    </script>
+</body>
+
+</html>
