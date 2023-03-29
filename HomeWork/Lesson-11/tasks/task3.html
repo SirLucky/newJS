@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 3</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Дано: Морський бій. Випадковим чином на двовимірному полі розміром
+        6*6 розташовується 5 кораблів. Користувач стріляє вказуючи
+        координати. Гра продовжується поки не потоплено усі кораблі або у
+        користувача не закінчаться снаряди.
+
+    </p>
+    <script>
+        // Об'ява змінних, та отримання данних
+
+        const quantityPlacesOnFieldX = 6
+        const quantityPlacesOnFieldY = 6
+        const quantityShipsOnField = 5
+        // Розрахунок 
+        function getRandomNum(minNumRange, maxNumRange) {
+            const randomShip = Math.floor(Math.random() * (maxNumRange - minNumRange + 1)) + minNumRange
+            return randomShip
+        }
+        function getField(quantityPlacesOnFieldX, quantityPlacesOnFieldY) {
+            let arrField = new Array(quantityPlacesOnFieldX)
+
+            for (let row = 0; row < quantityPlacesOnFieldX; row++) {
+                arrField[row] = new Array(quantityPlacesOnFieldY).fill(0)
+            }
+
+            return arrField
+        }
+        let arrField = getField(quantityPlacesOnFieldX, quantityPlacesOnFieldY);
+
+        function getShipOnField(arrField, quantityShipsOnField, quantityPlacesOnFieldX, quantityPlacesOnFieldY) {
+
+            for (let i = 0; i < quantityShipsOnField; i++) {
+                let indexShipX = 0
+                let indexShipY = 0
+                do {
+                    indexShipX = getRandomNum(0, quantityPlacesOnFieldX - 1)
+                    indexShipY = getRandomNum(0, quantityPlacesOnFieldY - 1)
+                } while (arrField[indexShipX][indexShipY] === 1)
+                arrField[indexShipX][indexShipY] = 1
+            }
+            return arrField
+        }
+
+        function gameProcess(arrField, quantityShipsOnField) {
+            do {
+                const userShotX = parseInt(prompt(`Введіть координату пострілу по рядку від 1 до ${quantityPlacesOnFieldX} `)) - 1
+                const userShotY = parseInt(prompt(`Введіть координату пострілу по стовбцю від 1 до ${quantityPlacesOnFieldY} `)) - 1
+
+                if (arrField[userShotX][userShotY] === 1) {
+                    quantityShipsOnField--
+                    alert('Потопив')
+                    arrField[userShotX][userShotY] = 0
+                } else alert('Спробуй ще!')
+            } while (quantityShipsOnField > 0)
+            alert('Ви потопили всі кораблі!')
+        }
+        const shipOnField = getShipOnField(arrField, quantityPlacesOnFieldX, quantityPlacesOnFieldY, quantityShipsOnField)
+        gameProcess(shipOnField, quantityShipsOnField)
+
+
+    </script>
+
+</body>
+
+</html>

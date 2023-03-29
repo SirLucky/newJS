@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 1</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Дано: Знайти суми елементів у вказаній області
+    </p>
+    <p>
+        Массив що дано:[[3, 4, 2], [7, 4, 1], [5, 6, 8]]
+    </p>
+
+    <script>
+        // Об'ява змінних, та отримання данних
+
+        let arr = [[3, 4, 2], [7, 4, 1], [5, 6, 8]]
+        let sum = 0
+
+        // Розрахунок та вивід результату
+        //Задача 1
+
+        for (let rowIndex = 0; rowIndex <= 1; rowIndex++) {
+            for (let colIndex = 0; colIndex <= 1; colIndex++) {
+                sum += arr[rowIndex][colIndex]
+            }
+        }
+        document.write(`Задача № 1 = ${sum}<br>`)
+        sum = 0
+
+        // Задача 2
+
+        for (let rowI = 0; rowI <= 1; rowI++) {
+            for (let colI = 1; colI <= 2; colI++) {
+                sum += arr[rowI][colI]
+            }
+        }
+        document.write(`Задача № 2 = ${sum}<br>`)
+        sum = 0
+
+        // Задача 3
+
+        for (let rowI = 1; rowI <= 2; rowI++) {
+            for (let colI = 0; colI <= 1; colI++) {
+                sum += arr[rowI][colI]
+            }
+        }
+        document.write(`Задача № 3 =  ${sum}<br>`)
+        sum = 0
+
+        // Задача 4
+
+        for (let rowI = 1; rowI <= 2; rowI++) {
+            for (let colI = 1; colI <= 2; colI++) {
+                sum += arr[rowI][colI]
+            }
+        }
+        document.write(`Задача № 4 =  ${sum}<br>`)
+        sum = 0
+
+        // Задача 5 Суму парних рядків
+
+        for (let rowI = 0; rowI <= 2; rowI++) {
+            for (let colI = 0; colI <= 2; colI++) {
+                if (rowI % 2 === 0) sum += arr[rowI][colI]
+            }
+        }
+        document.write(`Задача № 5 =  ${sum}<br>`)
+        sum = 0
+
+        // Задача 6 Суму непарних стовпців
+
+        for (let rowI = 0; rowI <= 2; rowI++) {
+            for (let colI = 0; colI <= 2; colI++) {
+                if (colI % 2 !== 0) sum += arr[rowI][colI]
+            }
+        }
+        document.write(`Задача № 6 =  ${sum}<br>`)
+        sum = 0
+
+        // Задача 7 У парних рядках – непарні стовпці, у непарних – парні.
+
+        for (let rowI = 0; rowI <= 2; rowI++) {
+            for (let colI = 0; colI <= 2; colI++) {
+                if (rowI % 2 === 0 && colI % 2 !== 0) sum += arr[rowI][colI]
+                if (rowI % 2 !== 0 && colI % 2 === 0) sum += arr[rowI][colI]
+            }
+        }
+        document.write(`Задача № 7 =  ${sum}<br>`)
+        sum = 0
+
+
+    </script>
+
+</body>
+
+</html>
