@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 3</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Дано: масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів під час сортування включеннями.
+
+    </p>
+    <script>
+        // Об'ява змінних, та отримання данних
+
+        function getRandomNum(minNumRange, maxNumRange) {
+            const randomNum = Math.floor(Math.random() * (maxNumRange - minNumRange + 1)) + minNumRange
+            return randomNum
+        }
+
+        function getRandomArr(quantityElements, minNumRange, maxNumRange) {
+            let startArr = []
+            for (let i = 0; i < quantityElements; i++) {
+                let randomNum = getRandomNum(minNumRange, maxNumRange)
+                startArr.push(randomNum)
+            }
+            return startArr
+        }
+        let startArr = getRandomArr(30, 0, 100);
+
+        // Розрахунок та вивід результату
+
+        function getIncludingSort(startArr) {
+            let counterIterations = 0
+            for (let k = 1; k < startArr.length; k++) {
+                const currentElement = startArr[k]
+                let i = k - 1
+                counterIterations++
+                while (i >= 0 && startArr[i] > currentElement) {
+                    startArr[i + 1] = startArr[i]
+                    i = i - 1
+                }
+                startArr[i + 1] = currentElement
+            }
+            return counterIterations
+        }
+        document.write(getIncludingSort(startArr))
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

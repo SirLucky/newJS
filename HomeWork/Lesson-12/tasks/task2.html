@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 2</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Дано: масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів під час сортування змішуванням.
+
+    </p>
+    <script>
+        // Об'ява змінних, та отримання данних
+
+        function getRandomNum(minNumRange, maxNumRange) {
+            const randomNum = Math.floor(Math.random() * (maxNumRange - minNumRange + 1)) + minNumRange
+            return randomNum
+        }
+
+        function getRandomArr(quantityElements, minNumRange, maxNumRange) {
+            let startArr = []
+            for (let i = 0; i < quantityElements; i++) {
+                let randomNum = getRandomNum(minNumRange, maxNumRange)
+                startArr.push(randomNum)
+            }
+            return startArr
+        }
+        let startArr = getRandomArr(30, 0, 100);
+
+        // Розрахунок Вивід результату
+        
+        const swap = (arr, i, j) => {
+            const tmp = arr[i]
+            arr[i] = arr[j]
+            arr[j] = tmp
+        }
+
+        function getCocktailSort(startArr) {
+
+            let counterIterations = 0
+            let leftIndex = 0
+            let rightIndex = startArr.length - 1
+
+            while (leftIndex < rightIndex) {
+                for (let idx = leftIndex; idx < rightIndex; idx++) {
+                    if (startArr[idx] > startArr[idx + 1]) {
+                        swap(startArr, idx, idx + 1)
+                    }
+                    counterIterations++
+                }
+                rightIndex--;
+
+                for (let idx = rightIndex; idx > leftIndex; idx--) {
+                    if (startArr[idx] < startArr[idx - 1]) {
+                        swap(startArr, idx, idx - 1)
+                    }
+                    counterIterations++
+                }
+                leftIndex++;
+            }
+            return counterIterations
+        }
+
+        document.write(getCocktailSort(startArr))
+
+    </script>
+</body>
+
+</html>

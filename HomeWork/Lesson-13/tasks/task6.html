@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 6</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Дано: масив імен. Застосовуючи відповідне сортування та бінарний
+        пошук визначити, чи є у масиві ім’я довжиною 5 символів і під яким індексом.
+
+
+    </p>
+    <script>
+
+
+        // Об'ява змінних, та отримання данних
+
+        let arrNames = ['Stiven', 'Poly', 'Denis', 'Olga', 'Ione', 'Bob', 'Alex']
+        let searchElement = 5
+        // Розрахунок та вивід результату
+
+        function getIncludingSort(arrNames) {
+            let counterIterations = 0
+            for (let k = 1; k < arrNames.length; k++) {
+                const currentElement = arrNames[k]
+                let i = k - 1
+                counterIterations++
+                while (i >= 0 && arrNames[i] > currentElement) {
+                    arrNames[i + 1] = arrNames[i]
+                    i = i - 1
+                }
+                arrNames[i + 1] = currentElement
+            }
+            return arrNames
+        }
+
+        function getIncludesBinarySearch(arrNames, searchElement) {
+            let start = 0
+            let end = arrNames.length - 1
+            while (start <= end) {
+                const middle = Math.floor((start + end) / 2)
+                if (arrNames[middle].length === searchElement) return true
+                if (arrNames[middle].length < searchElement) start = middle + 1
+                if (arrNames[middle].length > searchElement) end = middle - 1
+            }
+            return false
+        }
+
+        if (getIncludesBinarySearch(arrNames, searchElement)) alert(`${searchElement} входить у масив`)
+        else alert(`${searchElement}  не входить у масив`)
+
+        function getIndexBinarySearch(arrNames, searchElement) {
+            let start = 0
+            let end = arrNames.length - 1
+            while (start <= end) {
+                const middle = Math.floor((start + end) / 2)
+                if (arrNames[middle].length === searchElement) return middle
+                if (arrNames[middle].length < searchElement) start = middle + 1
+                if (arrNames[middle].length > searchElement) end = middle - 1
+            }
+            return false
+            document.write(arrNames)
+        }
+        const searchIndex = getIndexBinarySearch(arrNames, searchElement)
+        if (searchIndex !== -1) alert(`${searchElement} входить у масив під індексом ${searchIndex}`)
+        else alert(`${searchIndex}  не входить у масив`)
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

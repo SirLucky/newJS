@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 1</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Дано: масив 30 випадкових цілих чисел. Підрахувати скільки
+        було обмінів під час сортування бульбашкою.
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        function getRandomNum(minNumRange, maxNumRange) {
+            const randomNum = Math.floor(Math.random() * (maxNumRange - minNumRange + 1)) + minNumRange
+            return randomNum
+        }
+
+        function getRandomArr(quantityElements, minNumRange, maxNumRange) {
+            let startArr = []
+            for (let i = 0; i < quantityElements; i++) {
+                let randomNum = getRandomNum(minNumRange, maxNumRange)
+                startArr.push(randomNum)
+            }
+            return startArr
+        }
+        let startArr = getRandomArr(30, 0, 100);
+
+        // Розрахунок та вивід результату
+
+        function getSortBubble(startArr) {
+            let changed
+            const howElements = startArr.length
+            let counterIterations = 0
+            do {
+                changed = false
+                for (let i = 1; i < howElements; i++) {
+                    if (startArr[i - 1] > startArr[i]) {
+                        let temp = startArr[i - 1]
+                        startArr[i - 1] = startArr[i]
+                        startArr[i] = temp
+                        changed = true
+                    }
+                    counterIterations++
+                }
+            }
+            while (changed)
+            return counterIterations
+        }
+        console.log(getSortBubble(startArr));
+
+
+    </script>
+
+</body>
+
+</html>
