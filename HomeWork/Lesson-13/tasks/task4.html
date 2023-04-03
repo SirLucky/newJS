@@ -14,110 +14,58 @@
     <!-- Умови завдання-->
 
     <p>
-
-        Дано: Для розглянутих методів сортування спробувати вивести етапи
-        сортування шляхом виведення відповідних таблиць за зразком.
-        Тобто кожного разу після обміну елементів вивести поточний стан масиву на екран.
-
+        Задача 4. З використанням замикань розробити ітератор, тобто функцію,
+        що буде поступово за окремими викликами видавати по одну букву наперед
+        заданого слова. З використанням нього розробити гру «Прекладач». Виводимо
+        для користувача опис цього слова і по одну букву користувач вводить переклад
+        цього слова. Підрахувати кількість вгаданих букв.
     </p>
     <script>
 
         // Об'ява змінних, та отримання данних
+        const arrWords = [['слон', 'тигр', 'носорог', 'жираф', 'зебра', 'крокодил'],
+        ['elephant', 'tiger', 'rhinoceros', 'giraffe', 'zebra', 'crocodile']]
+
 
         function getRandomNum(minNumRange, maxNumRange) {
             const randomNum = Math.floor(Math.random() * (maxNumRange - minNumRange + 1)) + minNumRange
             return randomNum
         }
 
-        function getRandomArr(quantityElements, minNumRange, maxNumRange) {
-            let startArr = []
-            for (let i = 0; i < quantityElements; i++) {
-                let randomNum = getRandomNum(minNumRange, maxNumRange)
-                startArr.push(randomNum)
-            }
-            return startArr
-        }
-        let startArr = getRandomArr(4, 0, 10);
+        const randomIndex = getRandomNum(0, arrWords[0].length - 1)
+        const randomWord = arrWords[0][randomIndex]
+        const randomEnglishWord = arrWords[1][randomIndex]
+        let counter = 0
 
         // Розрахунок та вивід результату
-        // Вивід єкрану для сортування бульбашкою
-        //--------------------------------------------------------------------------------------
-        document.write(`<h3>Вивід екрану для сортування бульбашкою.</h3>`)
-        function getSortBubble(startArr) {
-            let changed
-            const howElements = startArr.length
-            do {
-                changed = false
-                for (let i = 1; i < howElements; i++) {
-                    if (startArr[i - 1] > startArr[i]) {
-                        let temp = startArr[i - 1]
-                        startArr[i - 1] = startArr[i]
-                        startArr[i] = temp
-                        changed = true
-                    }
-                    document.write(`[${startArr}] <br>`)
+
+        alert(`Слово що потрібно перекласти ${randomWord}`)
+
+        function gameProcess(counter, randomEnglishWord) {
+
+            let i = 0
+            function increment() {
+
+                let userLetter = prompt('Введіть англійську букву з маненькоі літери')
+                if (randomEnglishWord[i] === userLetter) {
+                    alert('Ви вгадали')
+                    return [counter++, i++]
                 }
+                else {
+                    alert('Нажаль не вірно, спробуйте наступну букву')
+                }
+                return i++
             }
-            while (changed)
-            return startArr
+            return increment
         }
-        console.log(getSortBubble(startArr));
-
-        // Вивід єкрану для сортування змішуванням.
-        //--------------------------------------------------------------------------------------
-        document.write(`<h3>Вивід екрану для сортування змішуванням.</h3>`)
-        const swap = (arr, i, j) => {
-            const tmp = arr[i]
-            arr[i] = arr[j]
-            arr[j] = tmp
+        let guessedLetters = gameProcess(counter, randomEnglishWord)
+        for (let i = 0; i < arrWords[1][randomIndex].length - 1; i++) {
+            document.write(`Ви вгадали ${guessedLetters()} букв!<br>`)
         }
 
-        function getCocktailSort(startArr) {
 
-            let leftIndex = 0
-            let rightIndex = startArr.length - 1
+        // let guessedLetters = gameProcess(randomEnglishWord)
 
-            while (leftIndex < rightIndex) {
-                for (let idx = leftIndex; idx < rightIndex; idx++) {
-                    if (startArr[idx] > startArr[idx + 1]) {
-                        swap(startArr, idx, idx + 1)
-                    }
-                    document.write(`[${startArr}] <br>`)
-                }
-                rightIndex--;
-
-                for (let idx = rightIndex; idx > leftIndex; idx--) {
-                    if (startArr[idx] < startArr[idx - 1]) {
-                        swap(startArr, idx, idx - 1)
-                    }
-                    document.write(`[${startArr}] <br>`)
-                }
-                leftIndex++;
-            }
-            return startArr
-        }
-        console.log(getCocktailSort(startArr))
-
-        // Вивід єкрану для сортування включеннями.
-        //--------------------------------------------------------------------------------------
-        document.write(`<h3>Вивід екрану для сортування включеннями.</h3>`)
-
-        function getIncludingSort(startArr) {
-
-            for (let k = 1; k < startArr.length; k++) {
-                const currentElement = startArr[k]
-                let i = k - 1
-
-                while (i >= 0 && startArr[i] > currentElement) {
-                    startArr[i + 1] = startArr[i]
-                    i = i - 1
-                }
-                document.write(`[${startArr}] <br>`)
-                startArr[i + 1] = currentElement
-            }
-            return startArr
-        }
-        console.log(getIncludingSort(startArr))
 
     </script>
 

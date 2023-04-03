@@ -14,61 +14,33 @@
     <!-- Умови завдання-->
 
     <p>
-        Дано: масив імен. Застосовуючи відповідне сортування та бінарний
-        пошук визначити, чи є у масиві ім’я «Olga» і під яким індексом.
+        Задача 5. Тренажер додавання. Кожні 10 секунд користувачу задають
+        випадковий приклад з додавання двох цифр і робиться перевірка.
     </p>
     <script>
 
         // Об'ява змінних, та отримання данних
 
-        let arrNames = ['Stiven', 'Polly', 'Denis', 'Olga', 'Ilone', 'Bob', 'Alex']
-        let searchElement = 'Olga'
+
         // Розрахунок та вивід результату
 
-        function getIncludingSort(arrNames) {
-            let counterIterations = 0
-            for (let k = 1; k < arrNames.length; k++) {
-                const currentElement = arrNames[k]
-                let i = k - 1
-                counterIterations++
-                while (i >= 0 && arrNames[i] > currentElement) {
-                    arrNames[i + 1] = arrNames[i]
-                    i = i - 1
-                }
-                arrNames[i + 1] = currentElement
-            }
-            return arrNames
+        function getRandomNum(minNumRange, maxNumRange) {
+            const randomNum = Math.floor(Math.random() * (maxNumRange - minNumRange + 1)) + minNumRange
+            return randomNum
         }
 
-        function getIncludesBinarySearch(arrNames, searchElement) {
-            let start = 0
-            let end = arrNames.length - 1
-            while (start <= end) {
-                const middle = Math.floor((start + end) / 2)
-                if (arrNames[middle] === searchElement) return true
-                if (arrNames[middle] < searchElement) start = middle + 1
-                if (arrNames[middle] > searchElement) end = middle - 1
+        function getSum() {
+            function sum() {
+                let firstVal = getRandomNum(1, 10)
+                let secondVal = getRandomNum(1, 10)
+                let userNumber = parseInt(prompt(`Скільки буде ${firstVal} додати ${secondVal}?`))
+                if (firstVal + secondVal === userNumber) alert('Все вірно!')
+                else alert('Назад, до школи!')
             }
-            return false
+            return sum
         }
-
-        if (getIncludesBinarySearch(arrNames, searchElement)) alert(`${searchElement} входить у масив`)
-        else alert(`${searchElement}  не входить у масив`)
-
-        function getIndexBinarySearch(arrNames, searchElement) {
-            let start = 0
-            let end = arrNames.length - 1
-            while (start <= end) {
-                const middle = Math.floor((start + end) / 2)
-                if (arrNames[middle] === searchElement) return middle
-                if (arrNames[middle] < searchElement) start = middle + 1
-                if (arrNames[middle] > searchElement) end = middle - 1
-            }
-            return false
-        }
-        const searchIndex = getIndexBinarySearch(arrNames, searchElement)
-        if (searchIndex !== -1) alert(`${searchElement} входить у масив під індексом ${searchIndex}`)
-        else alert(`${searchIndex}  не входить у масив`)
+        let sum = getSum()
+        let timer = setInterval(sum, 2000)
 
     </script>
 </body>

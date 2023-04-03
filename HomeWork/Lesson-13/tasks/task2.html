@@ -14,62 +14,32 @@
     <!-- Умови завдання-->
 
     <p>
-        Дано: масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів під час сортування змішуванням.
+        Задача 2. Нехай x_0 = x_1 = 1, x_i = x_i_1 + 2 * x_i_2, де i = 2,3.... Визначити x_n. Розв’язати з
+        використанням рекурсивних і нерекурсивних алгоритмів
 
     </p>
     <script>
         // Об'ява змінних, та отримання данних
 
-        function getRandomNum(minNumRange, maxNumRange) {
-            const randomNum = Math.floor(Math.random() * (maxNumRange - minNumRange + 1)) + minNumRange
-            return randomNum
-        }
 
-        function getRandomArr(quantityElements, minNumRange, maxNumRange) {
-            let startArr = []
-            for (let i = 0; i < quantityElements; i++) {
-                let randomNum = getRandomNum(minNumRange, maxNumRange)
-                startArr.push(randomNum)
-            }
-            return startArr
-        }
-        let startArr = getRandomArr(30, 0, 100);
 
         // Розрахунок Вивід результату
-        
-        const swap = (arr, i, j) => {
-            const tmp = arr[i]
-            arr[i] = arr[j]
-            arr[j] = tmp
+        function getRecursiveSolution(i) {
+            if (i === 1 || i === 0) return 1
+            else return getRecursiveSolution(i - 1) + 2 * i - 2
         }
+        console.log(getRecursiveSolution(10));
 
-        function getCocktailSort(startArr) {
-
-            let counterIterations = 0
-            let leftIndex = 0
-            let rightIndex = startArr.length - 1
-
-            while (leftIndex < rightIndex) {
-                for (let idx = leftIndex; idx < rightIndex; idx++) {
-                    if (startArr[idx] > startArr[idx + 1]) {
-                        swap(startArr, idx, idx + 1)
-                    }
-                    counterIterations++
-                }
-                rightIndex--;
-
-                for (let idx = rightIndex; idx > leftIndex; idx--) {
-                    if (startArr[idx] < startArr[idx - 1]) {
-                        swap(startArr, idx, idx - 1)
-                    }
-                    counterIterations++
-                }
-                leftIndex++;
+        function getLineSOlution(i) {
+            let x_i = x_i_1 = 1
+            for (let k = 2; k <= i; k++) {
+                x_i = x_i_1 + 2 * k - 2
+                x_i_1 = x_i
             }
-            return counterIterations
+            return x_i
         }
+        console.log(getLineSOlution(10));
 
-        document.write(getCocktailSort(startArr))
 
     </script>
 </body>

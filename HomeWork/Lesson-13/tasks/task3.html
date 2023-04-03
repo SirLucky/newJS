@@ -14,48 +14,34 @@
     <!-- Умови завдання-->
 
     <p>
-        Дано: масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів під час сортування включеннями.
-
+        З використанням замикань розробити ітератор, тобто функцію, що буде поступово
+        за окремими викликами видавати по одне значення від заданого мінімального до
+        заданого максимального. Якщо значення досягне максимального, то наступним буде
+        мінімальне значення. З використанням цієї функції реалізувати перебір номерів місяців.
     </p>
     <script>
         // Об'ява змінних, та отримання данних
 
-        function getRandomNum(minNumRange, maxNumRange) {
-            const randomNum = Math.floor(Math.random() * (maxNumRange - minNumRange + 1)) + minNumRange
-            return randomNum
-        }
-
-        function getRandomArr(quantityElements, minNumRange, maxNumRange) {
-            let startArr = []
-            for (let i = 0; i < quantityElements; i++) {
-                let randomNum = getRandomNum(minNumRange, maxNumRange)
-                startArr.push(randomNum)
-            }
-            return startArr
-        }
-        let startArr = getRandomArr(30, 0, 100);
+        let valMin = 3
+        let valMax = 15
 
         // Розрахунок та вивід результату
 
-        function getIncludingSort(startArr) {
-            let counterIterations = 0
-            for (let k = 1; k < startArr.length; k++) {
-                const currentElement = startArr[k]
-                let i = k - 1
-                counterIterations++
-                while (i >= 0 && startArr[i] > currentElement) {
-                    startArr[i + 1] = startArr[i]
-                    i = i - 1
-                }
-                startArr[i + 1] = currentElement
+        function getIteration(valMin, valMax) {
+            const valMinStart = 1
+            function increment() {
+
+                if (valMin === 13) valMin = valMinStart
+                return valMin++
             }
-            return counterIterations
+            return increment
         }
-        document.write(getIncludingSort(startArr))
+        let iter = getIteration(valMin, valMax)
+        for (let i = valMin; i <= valMax; i++) {
 
+            document.write(`Номер місяця ${iter()}<br>`)
 
-
-
+        }
 
     </script>
 

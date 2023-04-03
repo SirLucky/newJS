@@ -14,35 +14,32 @@
     <!-- Умови завдання-->
 
     <p>
-        Задача 1. Нехай x_0 = 1, x_i = x_i-1 + 2_i, де i = 1,2,... . Визначити x_10.
+        Задача 1. Нехай x_0 = 1, x_i = x_i_1 + 2*i, де i = 1,2,... . Визначити x_10.
         Розв’язати з використанням рекурсивних і нерекурсивних алгоритмів
     </p>
     <script>
-
-        // Об'ява змінних, та отримання данних
 
         // Розрахунок та вивід результату
 
         function taskRec1(i) {
             if (i === 0) return 1
-            else return task1(i - 1) + 2 * i
+            else return taskRec1(i - 1) + 2 * i
         }
-        console.log(task1(10))
+        console.log(taskRec1(10))
 
         function taskNotRec1(i) {
-            if( i ===0) return 1
-            else {
-                
+
+            let x_i = 1, x_i_1 = 1
+            for (let k = 1; k <= i; k++) {
+
+                x_i = x_i_1 + 2 * k
+                x_i_1 = x_i
             }
+            return x_i
         }
-
-
-
-
-
+        console.log(taskNotRec1(10))
 
     </script>
-
 </body>
 
 </html>
