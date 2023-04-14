@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 1</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+    <pre>
+    Задача 1. Описати масив об’єктів – сайтів розроблених компанією з такими властивостями
+    ----- Властивості ------
+    назва компанії на час розробки (назву періодично змінюють)
+    власник компанії
+    споснсори (масив спонсорів)
+    * прізвище спонсора
+    * ім’я спонсора
+    * сума вкладень спонсора
+    рік випуску
+    вартість сайту
+    Знайти:
+    1) загальну вартість усіх сайтів
+    2) кількість сайтів, що було зроблено між 2000 та 2009 рр.
+    3) кількість сайтів, де сума спонсорських вкладень була більшою за 100000
+    4) створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив)
+    5) знайти рік, коли прибуток був найбільшим
+    6) упорядкувати список за спаданням прибутку
+    7) Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000
+    </pre>
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        let sitsList = [{
+            companyName: 'Asia',
+            companyOner: 'Joan Smith',
+            sponsors: {
+                sponsorSecondName: 'Ivan',
+                sponsorFirstName: '',
+                investmentAmount: 9000,
+            },
+            yearProduction: 2004,
+            costSite: 9000,
+        },
+        {
+            companyName: 'Europe',
+            companyOner: 'Joan Smith',
+            sponsors: {
+                sponsorSecondName: 'Petro',
+                sponsorFirstName: '',
+                investmentAmount: 11000,
+            },
+            yearProduction: 2010,
+            costSite: 11000,
+        },
+        {
+            companyName: 'America',
+            companyOner: 'Joan Smith',
+            sponsors: {
+                sponsorSecondName: 'Stepan',
+                sponsorFirstName: '',
+                investmentAmount: 8000,
+            },
+            yearProduction: 2006,
+            costSite: 9500,
+        },
+        {
+            companyName: 'Africa',
+            companyOner: 'Joan Smith',
+            sponsors: {
+                sponsorSecondName: 'Maxim',
+                sponsorFirstName: '',
+                investmentAmount: 12000,
+            },
+            yearProduction: 2007,
+            costSite: 15000,
+        },
+        {
+            companyName: 'Australia',
+            companyOner: 'Joan Smith',
+            sponsors: {
+                sponsorSecondName: 'Nick',
+                sponsorFirstName: '',
+                investmentAmount: 7500,
+            },
+            yearProduction: 2012,
+            costSite: 5000,
+        }]
+        // Рішення
+
+        //----------------------------------------------------------------
+        // 1) загальну вартість усіх сайтів
+
+        const totalCostSites = sitsList.reduce(
+            (prevSum, site) => prevSum + site.costSite, 0
+        )
+        document.write(`<h3>1) Загальна вартість усіх сайтів: ${totalCostSites}</h3>`)
+
+        //----------------------------------------------------------------
+        // 2) кількість сайтів, що було зроблено між 2000 та 2009 рр.
+
+        let sites2000_2009_Production = 0
+        for (let i = 0; i < sitsList.length; i++) {
+            if (sitsList[i].yearProduction > 2000 && sitsList[i].yearProduction < 2009) sites2000_2009_Production++
+        }
+        document.write(`<h3>2) кількість сайтів, що було зроблено між 2000 та 2009 рр.: ${sites2000_2009_Production}</h3>`)
+
+        //----------------------------------------------------------------
+        // 3) кількість сайтів, де сума спонсорських вкладень була більшою за 100000
+
+        let totalSitesWithInvestmentMore100000 = 0
+        for (let i = 0; i < sitsList.length; i++) {
+            if (sitsList[i].costSite > 10000) totalSitesWithInvestmentMore100000++
+        }
+        document.write(`<h3>3) кількість сайтів, де сума спонсорських вкладень була більшою за 100000:
+                 ${totalSitesWithInvestmentMore100000}</h3>`)
+
+        //----------------------------------------------------------------
+        //  4) створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив)
+        const arrSponsors = sitsList.filter(site => site.sponsors)
+        console.log(arrSponsors);
+
+        //----------------------------------------------------------------
+        // 5) знайти рік, коли прибуток був найбільшим
+
+        let highestProfit = 0
+        let highestYear = 0
+        for (let i = 0; i < sitsList.length; i++) {
+            if (sitsList[i].costSite > highestProfit) {
+                highestProfit = sitsList[i].costSite
+                highestYear = sitsList[i].yearProduction
+            }
+        }
+        document.write(`<h3>5) Рік, коли прибуток був найбільшим:
+                 ${highestYear}</h3>`)
+
+        //----------------------------------------------------------------
+        // 6) упорядкувати список за спаданням прибутку
+
+        sitsList.sort(function (a, b) {
+            a.costSite < b.costSite
+        })
+
+        console.log(sitsList);
+
+        //----------------------------------------------------------------
+        // 7) Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000
+        let arrSiseCostUntil10000 = []
+        let arrSiseCostAfter10000 = []
+        for (const i of sitsList) {
+            if (i.costSite >= 10000) arrSiseCostAfter10000.push(JSON.parse(JSON.stringify(i)))
+            else { arrSiseCostUntil10000.push(JSON.parse(JSON.stringify(i))) }
+        }
+        console.log(arrSiseCostUntil10000);
+        console.log(arrSiseCostAfter10000);
+
+    </script>
+
+</body>
+
+</html>

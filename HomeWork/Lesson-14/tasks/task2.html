@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 2</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Задача 2. Розробити функцію, у яку передають об’єкт (день, місяць, рік).
+        Визначити, який буде рік через N місяців.
+    </p>
+
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        let dataList = {
+            day: 25,
+            month: 4,
+            year: 2023
+        }
+        let N = 20
+
+        // Розрахунок та вивід результату
+
+        function getYear(dataList, N) {
+
+            let moreYears = Math.floor((dataList.month + N) / 12)
+            let result = dataList.year + moreYears
+            return result
+
+        }
+        let result = getYear(dataList, N)
+        document.write(`Буде ${result} рік`)
+
+
+    </script>
+</body>
+
+</html>
