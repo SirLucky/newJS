@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 4</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Задача 4. Розробити клас Baner
+        Поля
+        Масив об’єктів ( графічних зображень та посилань на сайти)
+        методи
+        Метод випадкового вибору об’єкта (графічного зображення та посилання)
+        Метод виведення випадкового банера
+    </p>
+    <script>
+        // Розрахунок та вивід результату
+
+        class Baner {
+            constructor() {
+                this.objArr = [
+                    { pic: 'img/cocacola.jpg', link: 'https://www.coca-cola.ua/' },
+                    { pic: 'img/pepsi.jpg', link: 'https://pepsico.ua/' },
+                    { pic: 'img/google.jpg', link: 'https://google.com/' },
+                    { pic: 'img/ebay.jpg', link: 'https://ebay.com/' }
+                ]
+            }
+            getRandomObj() {
+                return this.randomNum = 1 + Math.floor(Math.random() * this.objArr.length)
+            }
+            render() {
+                debugger
+                let randomObj = this.getRandomObj()
+                document.write(`<img src = ${this.objArr[randomObj].pic}> <br> <a href=${this.objArr[randomObj].link}>Перейти</a>`)
+            }
+        }
+        let res = new Baner()
+        res.render()
+
+    </script>
+</body>
+
+</html>

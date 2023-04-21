@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 0</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Задача 0. Дано два об’єкта. Обидва містять масив цілих чисел. При цьому у одному з них є функція знаходження
+        суми, а у іншому – функція для знаходження добутку тих, які знаходяться між заданими мінімальним і
+        максимальних значенням. Використати обидва методи стосовно обидвох об’єктів (використати call, apply)
+    </p>
+    <script>
+
+        // Об'ява змінних, та отримання данних
+
+        let objPlus = {
+            arr: [5, 2, 9, 3, 7, 1, 6, 0, 4],
+            sum: function (minValue, maxValue) {
+                return this.arr.reduce((prSum, elem) =>
+                    elem >= minValue && elem <= maxValue
+                        ? prSum + elem
+                        : prSum,
+                    0
+                )
+            },
+        }
+
+        console.log(objPlus.sum(3, 8))
+
+        let objMult = {
+            arr: [4, 9, 3, 6, 5, 2, 7, 5],
+            mult: function (minValue, maxValue) {
+                return this.arr.reduce((prMult, elem) =>
+                    elem >= minValue && elem <= maxValue
+                        ? prMult * elem
+                        : prMult,
+                    1
+                )
+            },
+        }
+        console.log(objMult.mult(1, 4));
+
+        // Розрахунок та вивід результату
+
+        let resColl = objPlus.sum.call(objMult, 2, 6)
+        console.log(resColl)
+
+        let resApply = objPlus.sum.apply(objMult, [2, 6])
+        console.log(resApply)
+
+        let resColl2 = objMult.mult.call(objPlus, 4, 9)
+        console.log(resColl2)
+
+        let resApply2 = objMult.mult.apply(objPlus, [4, 9])
+        console.log(resApply2)
+
+
+
+
+    </script>
+
+</body>
+
+</html>

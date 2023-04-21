@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 5</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Задача 5. Розробити клас «Керівник танців»
+        Поля
+        Масив імен хлопців
+        Масив імен дівчат
+        Методи
+        Метод випадкового вибору імені хлопця
+        Метод випадкового вибору імені дівчини
+        Метод виведення пари для танців
+        Метод run , який ініціює через кожні 5 секунд виведення нової пари для танців
+    </p>
+    <script>
+        // Task 5. Develop the "Dance Manager" class
+        //         fields
+        //  Array of boys' names
+        //  Array of girls' names
+        //     Methods
+        //  The method of randomly choosing a boy's name
+        //  The method of randomly choosing a girl's name
+        //  The method of deriving a pair for dancing
+        //  The run method, which initiates the output of a new pair for dancing every 5 seconds
+
+        // Розрахунок та вивід результату
+        class DanceManager {
+            constructor() {
+                this.arrBoys = ['Piter', 'Sanny', 'John', 'Ron']
+                this.arrGirls = ['Kate', 'Joanna', 'Mary', 'Rouse']
+            }
+            getRandomindex() {
+                return Math.floor(Math.random() * (this.arrBoys.length))
+            }
+            getRandomBoysName() {
+                let boy = this.getRandomindex()
+                return this.arrBoys[boy]
+            }
+            getRandomGirlsName() {
+                let girl = this.getRandomindex()
+                return this.arrGirls[girl]
+            }
+            getRandomPair() {
+                document.write(`Пара що танцює ${this.getRandomBoysName()} та ${this.getRandomGirlsName()}!<br>`)
+            }
+            run() {
+                setInterval(() => this.getRandomPair(), 5000)
+            }
+        }
+        let r1 = new DanceManager()
+        r1.run()
+
+
+
+    </script>
+
+</body>
+
+</html>

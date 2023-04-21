@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 2</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Задача 2. Створити об’єкт «Авто».
+        Авто
+        Поля(властивості)
+        Марка
+        Розмір бака
+        Кількість наявних літрів
+        Кількість місць
+        Кількість пасажирів
+        Методи (дії)
+        Заправка на вказану кількість літрів
+        Виведення кількості пасажирів
+        Додавання пасажирів
+        Висадка пасажирів
+    </p>
+    <script>
+        // Розрахунок та вивід результату
+
+        let objAuto = {
+            brand: 'Toyota',
+            tankSize: 60,
+            litersAvailable: 30,
+            numberSits: 6,
+            numberPassengers: 3,
+
+            refueling: function (numliters) { return this.litersAvailable += numliters },
+
+            outputNumberPassengers: function () { document.write(`${this.numberPassengers}`) },
+
+            addingPass: function (numPass) { return this.numberPassengers += numPass },
+
+            disembarkationPass: function (numPass) { return this.numberPassengers -= numPass },
+        }
+        let result = objAuto.refueling(20)
+        document.write(result)
+        document.write(`<br>`)
+
+        objAuto.outputNumberPassengers()
+
+        document.write(`<br>`)
+
+        let result3 = objAuto.addingPass(4)
+        document.write(result3)
+        document.write(`<br>`)
+
+        let result4 = objAuto.disembarkationPass(1)
+        document.write(result4)
+        document.write(`<br>`)
+
+
+    </script>
+
+</body>
+
+</html>

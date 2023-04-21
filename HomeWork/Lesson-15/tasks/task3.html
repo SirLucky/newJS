@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 3</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Задача 3. Розробити клас MultChecker для перевірки таблиці множення
+        Поля
+        Число, яке перевіряємо (наприклад, перевірка частини таблиці множення на 7)
+        Кількість правильних відповідей
+        Кількість неправильних відповідей
+        Методи
+        Генерування прикладу (метод випадковим чином визначає друге число, перше число фіксоване)
+        Перевірка правильності вказаної відповіді
+        render - виведення інформації про тестування на екран
+    </p>
+    <script>
+        // Розрахунок та вивід результату
+        class MultChecker {
+            constructor(checkNum) {
+                this.num = checkNum
+                this.numCorrectAnswers = 0
+                this.numIncorrectAnswers = 0
+                this.randomNum = 0
+            }
+            getRandomNum() {
+                return this.randomNum = 1 + Math.floor(Math.random() * 9)
+            }
+            getExample() {
+
+                let userAnswer = parseInt(prompt(`Скільки буде ${this.num} * ${this.getRandomNum()}`))
+                return userAnswer
+            }
+            checkUserAnswer() {
+                let realResult = this.getExample()
+                if (realResult === this.randomNum * this.num) return this.numCorrectAnswers++
+                else return this.numIncorrectAnswers++
+            }
+            render() {
+                document.write(`Вірно вдповіли: ${this.numCorrectAnswers} <br> Невірно відповіли:${this.numIncorrectAnswers}`)
+            }
+        }
+        let newClass = new MultChecker(7)
+        for (let index = 0; index < 2; index++) {
+            newClass.checkUserAnswer()
+        }
+        newClass.checkUserAnswer()
+
+        newClass.render()
+    </script>
+
+</html>
