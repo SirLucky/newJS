@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 4</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Задача 4. Створити клас TBankomat, який моделює роботу банкомата.
+        Клас повинен містити поля для зберігання кількості купюр кожного із номіналів від 5 до 200 гривень.
+        Реалізувати методи знаходження максимальної та мінімальної сум, які
+        може видати банкомат, та метод зняття деякої суми.
+    </p>
+    <script>
+        // Розрахунок та вивід результату
+
+        class TBankomat {
+            constructor(banknote_5, banknote_10, banknote_20, banknote_50, banknote_100, banknote_200) {
+                this.banknote_5 = banknote_5,
+                    this.banknote_10 = banknote_10,
+                    this.banknote_20 = banknote_20,
+                    this.banknote_50 = banknote_50,
+                    this.banknote_100 = banknote_100,
+                    this.banknote_200 = banknote_200,
+                    this.ATM_loading = [this.banknote_5 * 5, this.banknote_10 * 10, this.banknote_20 * 20, this.banknote_50 * 50, this.banknote_100 * 100, this.banknote_200 * 200],
+                    this.MaxSum = 0
+            }
+            getMaxSum() {
+                for (let i = 0; i < this.ATM_loading.length; i++) {
+                    this.MaxSum += this.ATM_loading[i]
+                }
+                return this.MaxSum
+            }
+            getMinSum() {
+                let MinSum = 0
+                if (this.banknote_5 > 0) {
+                    MinSum = this.banknote_5
+                    return MinSum
+                }
+                if (this.banknote_10 > 0) {
+                    MinSum = this.banknote_10
+                    return MinSum
+                }
+                if (this.banknote_20 > 0) {
+                    MinSum = this.banknote_20
+                    return MinSum
+                }
+                if (this.banknote_50 > 0) {
+                    MinSum = this.banknote_50
+                    return MinSum
+                }
+                if (this.banknote_100 > 0) {
+                    MinSum = this.banknote_100
+                    return MinSum
+                }
+                if (this.banknote_200 > 0) {
+                    MinSum = this.banknote_200
+                    return MinSum
+                }
+            }
+
+            getTakeMoney(sumMoney) {
+
+                if (this.getMaxSum() >= sumMoney) {
+                    this.MaxSum -= sumMoney
+                    document.write(`Видачу схвалено<br>`)
+                }
+                else document.write('Введіть меньшу сумму')
+            }
+            toString() {
+                return `Максимальна сумма: ${this.getMaxSum()} <br>Мінімальна сумма: ${this.getMinSum()}`
+            }
+        }
+        let test = new TBankomat(5, 3, 20, 7, 6, 4)
+        document.write(`${test.getTakeMoney(300)} <br>`)
+        document.write(test.toString())
+    </script>
+
+</html>
