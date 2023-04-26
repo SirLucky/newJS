@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Задача 3</h1>
+
+    <!-- Умови завдання-->
+
+    <p>
+        Задача 3. Об’єкт “Фірма” (використати члени-класи)
+        поля
+        назва фірми;
+        дата заснування (рік, місяць);
+        послуги (назва послуги, вартість, термін виконання);
+        адреси філіалів (країна, місто, вулиця, номер будинку);
+        методи
+        визначення кількості років існування фірми;
+        виведення всіх філіалів фірми у вказаному місті;
+        виведення на екран послуг, що можуть бути виконані за вказану суму грошей та вказаний термін часу;
+    </p>
+    <script>
+        class FServices {
+            constructor(typeSer, cost, deadLine) {
+                this.typeSer = typeSer,
+                    this.cost = cost,
+                    this.deadLine = deadLine
+            }
+            toString() {
+                return `${this.typeSer} ${this.cost}usd., ${this.deadLine} hours`
+            }
+        }
+        class BranchAddress {
+            constructor(country, city, street, houseNumber) {
+                this.country = country,
+                    this.city = city,
+                    this.street = street,
+                    this.houseNumber = houseNumber
+            }
+            toString() {
+                return `${this.country}, ${this.city}, ${this.street}, ${this.houseNumber}`
+            }
+        }
+        class ObjFirm {
+            constructor(firmName, foundingDate, services, address) {
+                this.firmName = firmName,
+                    this.foundingDate = foundingDate,
+                    this.services = services,
+                    this.address = address
+            }
+            toString() {
+                return `${this.firmName} "${this.foundingDate}"`
+            }
+
+            getCompanyExistence() {
+                return 2023 - this.foundingDate[0]
+            }
+            getAddress(city) {
+                let address = []
+                for (let i = 0; i < this.address.length; i++) {
+                    if (this.address[i].city === city) {
+                        address.push(this.address[i])
+                    }
+                }
+                return address
+            }
+
+            getServices(cost, deadLine) {
+                let services = []
+                for (let i = 0; i < this.address.length; i++) {
+                    if (this.services[i].cost <= cost && this.services[i].deadLine <= deadLine) {
+                        services.push(this.services[i])
+                    }
+                }
+                return services
+            }
+        }
+        const foundingDate = [2005, 10]
+
+        let services = [
+            new FServices('Cleaning', 350, 3),
+            new FServices('Cleaning', 150, 2),
+            new FServices('Cleaning', 250, 3),
+            new FServices('Cleaning', 400, 4),
+            new FServices('Cleaning', 800, 8)
+        ]
+
+        let address = [
+            new BranchAddress('Usa', 'Boston', 'Ave', 17),
+            new BranchAddress('Usa', 'Orlando', 'Ave', 22),
+            new BranchAddress('Usa', 'Boston', 'Ave', 35),
+            new BranchAddress('Usa', 'Orlando', 'Ave', 23),
+            new BranchAddress('Usa', 'Boston', 'Ave', 3)
+        ]
+        const firm = new ObjFirm('firmName', foundingDate, services, address)
+        document.write(`Company existence - ${firm.getCompanyExistence()}<br>`)
+        document.write(`Branch address in Boston- ${firm.getAddress('Boston')}<br>`)
+        document.write(`Services 380 usd. 4 hours - ${firm.getServices(380, 4)}<br>`)
+
+    </script>
+
+</body>
+
+</html>
